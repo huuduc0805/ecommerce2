@@ -4,24 +4,41 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProductController extends GetxController {
-  ProductInfor products_copy = ProductInfor();
   CartService cartService = Get.find();
+  final productDetails = Rxn<ProductInfor>();
   RxString currentTabSize = ''.obs;
   Rx<Color> currentTabColor = Colors.transparent.obs;
 
-  void onChangedTab(String tabKey) {
-    currentTabSize.value = tabKey;
+  @override
+  void onInit() {
+    // get productDetails từ trang home
+    productDetails.value = Get.arguments as ProductInfor;
+    super.onInit();
   }
 
-  void onChangedTabColor(Color tabKey) {
+  void onChangedSize(String tabKey) {
+    currentTabSize.value = tabKey;
+    if (productDetails.value != null) {
+      productDetails.value!.size = tabKey;
+    }
+  }
+
+  void onChangedColor(Color tabKey) {
     currentTabColor.value = tabKey;
+    if (productDetails.value != null) {
+      productDetails.value!.colors = tabKey;
+    }
   }
 
   void addProduct() {
-    products_copy.size = currentTabSize.value;
-    products_copy.colors = currentTabColor.value;
-    // ignore: invalid_use_of_protected_member
-    cartService.productCart.value.add(products_copy);
-    cartService.total.value += products_copy.cost!;
+    if (currentTabSize.value == '' ||
+        currentTabColor.value == Colors.transparent) {
+      // show message
+      return;
+    }
+
+    if (productDetails.value != null) {
+      cartService.onAddProduct(productDetails.value!);
+    }
   }
 }

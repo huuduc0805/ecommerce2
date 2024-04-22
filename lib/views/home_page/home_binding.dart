@@ -12,11 +12,27 @@ class HomeBinding extends Bindings {
 
 class CartService extends GetxService {
   RxList<ProductInfor> productCart = <ProductInfor>[].obs;
-
   RxDouble total = 0.0.obs;
+
+  void onAddProduct(ProductInfor product) {
+    final ProductInfor? findProductExist =
+        productCart.firstWhereOrNull((element) => element.name == product.name);
+    if (findProductExist != null) {
+      return;
+    }
+    // 1. Add product
+    productCart.add(product);
+    // 2. Calculator total
+    onCalculateTotal();
+  }
+
   void deleteItem(int index) {
     // ignore: invalid_use_of_protected_member
-    total.value -= productCart.value[index].cost!;
     productCart.removeAt(index);
+    onCalculateTotal();
+  }
+
+  void onCalculateTotal() {
+    // reduce
   }
 }

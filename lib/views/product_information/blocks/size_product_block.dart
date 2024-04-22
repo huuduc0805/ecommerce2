@@ -30,22 +30,22 @@ class SizeProductBlock extends GetView<ProductController> {
                 SizeButton(
                   textButton: 'S',
                   isPressed: controller.currentTabSize.value == 'S',
-                  onTap: () => controller.onChangedTab('S'),
+                  onTap: () => controller.onChangedSize('S'),
                 ),
                 SizeButton(
                   textButton: 'M',
                   isPressed: controller.currentTabSize.value == 'M',
-                  onTap: () => controller.onChangedTab('M'),
+                  onTap: () => controller.onChangedSize('M'),
                 ),
                 SizeButton(
                   textButton: 'L',
                   isPressed: controller.currentTabSize.value == 'L',
-                  onTap: () => controller.onChangedTab('L'),
+                  onTap: () => controller.onChangedSize('L'),
                 ),
                 SizeButton(
                   textButton: 'XL',
                   isPressed: controller.currentTabSize.value == 'XL',
-                  onTap: () => controller.onChangedTab('XL'),
+                  onTap: () => controller.onChangedSize('XL'),
                 ),
               ],
             ),

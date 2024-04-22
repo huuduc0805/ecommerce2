@@ -1,5 +1,4 @@
 import 'package:ecommerce_app_2/contstants/app_colors.dart';
-import 'package:ecommerce_app_2/views/home_page/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -10,8 +9,12 @@ class AppBarProductBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          EdgeInsets.only(left: 30.sp, top: 25.sp, bottom: 22.sp, right: 32.sp),
+      padding: EdgeInsets.only(
+        left: 30.sp,
+        top: 25.sp,
+        bottom: 22.sp,
+        right: 32.sp,
+      ),
       child: Row(
         children: [
           InkWell(

@@ -55,11 +55,10 @@ class ListProductBlock extends GetView<HomeController> {
               children: [
                 InkWell(
                   onTap: () {
-                    var productDetail = controller.product;
-                    productDetail.cost = productItem.cost;
-                    productDetail.name = productItem.name;
-                    productDetail.thumbnail = productItem.thumbnail;
-                    Get.toNamed('/product_infor');
+                    Get.toNamed(
+                      '/product_infor',
+                      arguments: productItem,
+                    );
                   },
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(11.sp),

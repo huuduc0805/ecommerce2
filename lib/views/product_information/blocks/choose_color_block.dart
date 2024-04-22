@@ -30,37 +30,37 @@ class ChooseColorBlock extends GetView<ProductController> {
                   productColor: AppColors.color1,
                   isPressed:
                       controller.currentTabColor.value == AppColors.color1,
-                  onTap: () => controller.onChangedTabColor(AppColors.color1),
+                  onTap: () => controller.onChangedColor(AppColors.color1),
                 ),
                 ChooseColorButton(
                   productColor: AppColors.color2,
                   isPressed:
                       controller.currentTabColor.value == AppColors.color2,
-                  onTap: () => controller.onChangedTabColor(AppColors.color2),
+                  onTap: () => controller.onChangedColor(AppColors.color2),
                 ),
                 ChooseColorButton(
                   productColor: AppColors.color3,
                   isPressed:
                       controller.currentTabColor.value == AppColors.color3,
-                  onTap: () => controller.onChangedTabColor(AppColors.color3),
+                  onTap: () => controller.onChangedColor(AppColors.color3),
                 ),
                 ChooseColorButton(
                   productColor: AppColors.color4,
                   isPressed:
                       controller.currentTabColor.value == AppColors.color4,
-                  onTap: () => controller.onChangedTabColor(AppColors.color4),
+                  onTap: () => controller.onChangedColor(AppColors.color4),
                 ),
                 ChooseColorButton(
                   productColor: AppColors.color5,
                   isPressed:
                       controller.currentTabColor.value == AppColors.color5,
-                  onTap: () => controller.onChangedTabColor(AppColors.color5),
+                  onTap: () => controller.onChangedColor(AppColors.color5),
                 ),
                 ChooseColorButton(
                   productColor: AppColors.color6,
                   isPressed:
                       controller.currentTabColor.value == AppColors.color6,
-                  onTap: () => controller.onChangedTabColor(AppColors.color6),
+                  onTap: () => controller.onChangedColor(AppColors.color6),
                 ),
               ],
             ),

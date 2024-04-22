@@ -1,5 +1,5 @@
 import 'package:ecommerce_app_2/contstants/app_colors.dart';
-import 'package:ecommerce_app_2/views/home_page/home_controller.dart';
+import 'package:ecommerce_app_2/models/product_item_model.dart';
 import 'package:ecommerce_app_2/views/product_information/product_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,28 +10,29 @@ class NameCostBlock extends GetView<ProductController> {
   NameCostBlock({super.key});
   @override
   Widget build(BuildContext context) {
-    HomeController homeController = Get.find();
-    var product = controller.products_copy;
-    product.cost = homeController.product.cost;
-    product.name = homeController.product.name;
+    final ProductInfor? productDetails = controller.productDetails.value;
+    final double cost = productDetails?.cost ?? 0;
+    final String name = productDetails?.name ?? 'N/A';
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 30.sp, vertical: 14.sp),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            product.name!,
+            name,
             style: GoogleFonts.poppins(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-                color: AppColors.textProduct),
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+              color: AppColors.textProduct,
+            ),
           ),
           Text(
-            '\$${product.cost}',
+            '\$$cost',
             style: GoogleFonts.poppins(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: AppColors.costProductColor),
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: AppColors.costProductColor,
+            ),
           ),
         ],
       ),
